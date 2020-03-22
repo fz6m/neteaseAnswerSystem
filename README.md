@@ -9,4 +9,6 @@ Vue.js + uniapp
 ### 后端
 Spring boot + Mysql + Mybatis + Druid + Jwt
 <br><br>
-（建设中）
+Spring boot 目录 ：`__springboot`
+
+Mysql 目录 ：`__mysql`
