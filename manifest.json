@@ -75,22 +75,28 @@
     "h5" : {
         "devServer" : {
             "port" : 8080, //端口号
-            "disableHostCheck" : true,
-            "proxy" : {
-                "/api" : {
-                    "pathRewrite" : {
-                        "^/api" : ""
-                    },
-                    "target" : "http://127.0.0.1:9000",
-                    "changeOrigin" : true,
-                    "secure" : false
-                }
-            },
-            "https" : true
+            "disableHostCheck" : true
         },
+        // "proxy" : {
+        //     "/api" : {
+        //         "pathRewrite" : {
+        //             "^/api" : ""
+        //         },
+        //         "target" : "http://127.0.0.1:9000",
+        //         "changeOrigin" : true,
+        //         "secure" : false
+        //     }
+        // }, 
+        //"https" : true
         "router" : {
             "mode" : "hash"
         },
-        "title" : "answerSystem"
+        "title" : "answerSystem",
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        },
+        "domain" : "test.fz6m.com"
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(headers="Accept=application/json",produces="application/json;charset=UTF-8")
 public class UserController {
 
@@ -19,6 +20,7 @@ public class UserController {
         return userService.login(id);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/token")
     public Object userTokenVerification(@RequestParam(value = "token") String token) {
         return userService.token(token);

@@ -34,7 +34,7 @@ public class DruidConfig {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean
                 (new StatViewServlet(), "/druid/*");
         // 白名单,多个用逗号分割， 如果allow没有配置或者为空，则允许所有访问
-        servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
+        // servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
         // 黑名单,多个用逗号分割 (共同存在时，deny优先于allow)
 //        servletRegistrationBean.addInitParameter("deny", "192.168.1.110");
         // 控制台管理用户名
