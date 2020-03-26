@@ -59,6 +59,13 @@ CREATE TABLE `token` (
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 表的索引 `token`
+--
+ALTER TABLE `token`
+  ADD PRIMARY KEY (`id`);
+COMMIT;
+
 -- ----------------------------
 -- Records of token
 -- ----------------------------
