@@ -14,7 +14,7 @@ public interface UserMapper {
     @Select("select * from user where id=#{id}")
     User getUser(Integer id);
 
-    @Insert("insert into token VALUES(#{id},#{token})")
+    @Insert("insert into token values(#{id},#{token})")
     int setToken(Integer id, String token);
 
     @Update("update user set count=#{count} ,answering_id=#{answeringId}," +
@@ -33,5 +33,7 @@ public interface UserMapper {
 
     @Select("select * from token where 1=1")
     List<UserShort> getAllLoginUser();
+
+
 
 }

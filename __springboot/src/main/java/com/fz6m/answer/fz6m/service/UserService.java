@@ -36,17 +36,28 @@ public class UserService {
                 tokenResponse.setCode(600);
             }
             else {
-                    // Do the first time
-                    user.setStart(1);
-                    Map<String,Object> params = new HashMap<>();
-                    params.put("id",user.getId());
-                    String token = tokenUtils.creatToken(params);
-                    // Save
-                    userMapper.setToken(user.getId(), token);
-                    // Update user
-                    userMapper.setUser(user);
-                    tokenResponse.setCode(200);
-                    tokenResponse.setToken(token);
+                    List<UserShort> allLoginUser = userMapper.getAllLoginUser();
+                    boolean mark = false;
+                    for(UserShort loginUser : allLoginUser) {
+                        if(id.equals(loginUser.getId())) {
+                            mark = true;
+                            tokenResponse.setCode(200);
+                            tokenResponse.setToken(loginUser.getToken());
+                        }
+                    }
+                    if(mark == false) {
+                        // Do the first time
+                        user.setStart(1);
+                        Map<String,Object> params = new HashMap<>();
+                        params.put("id",user.getId());
+                        String token = tokenUtils.creatToken(params);
+                        // Save
+                        userMapper.setToken(user.getId(), token);
+                        // Update user
+                        userMapper.setUser(user);
+                        tokenResponse.setCode(200);
+                        tokenResponse.setToken(token);
+                    }
                 }
         }
         return tokenResponse;
